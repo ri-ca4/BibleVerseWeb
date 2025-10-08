@@ -85,7 +85,7 @@ const handleSubmit = async () => {
 
     while(randomVerseObjects.length < quantity){
         const response = await fetchChapterContent(translation);
-        if(response && response.verseObject && response.verseObject.content && response.verseObject.content.length > 0){
+        if(response && response.verseObject && response.verseObject.content && response.verseObject.content.length > 0 && response.verseObject.number ){
             randomVerseObjects.push(response);
         }
     }
