@@ -37,7 +37,7 @@ const fetchChapterContent = async (trans) => {
 
     if(!variablesArray) {
         console.error("couldn't proceed, failed to get book/chapter variables");
-        return;
+        return null;
     }
 
     const [randBook, randChap] = variablesArray;
@@ -85,23 +85,38 @@ const handleSubmit = async () => {
 
     while(randomVerseObjects.length < quantity){
         const response = await fetchChapterContent(translation);
-        if(response != null){
+        if(response && response.verseObject && response.verseObject.content && response.verseObject.content.length > 0){
             randomVerseObjects.push(response);
         }
     }
 
-    outputDiv.innerHTML=''
+    console.log(randomVerseObjects);
+
+    outputDiv.innerHTML='';
 
     randomVerseObjects.forEach((object)=>{
+
+        let verseHtml = '<p class="verse">';
         const verseArray = object.verseObject.content;
-        verseArray.forEach((text)=>{
-            console.log(text);
-            outputDiv.innerHTML += `<p>${text}</p>`;
-        })
+        console.log(verseArray)
+
+        verseArray.forEach((item)=>{
+            if (typeof item === 'string') {
+                verseHtml += item;
+            }else if(typeof item === 'object' && item.text){
+                verseHtml += item.text;
+            }
+
+            verseHtml += ' ';
+        });
+
+        console.log(verseHtml);
+
         const verseRef = `${object.variables[0].name} ${object.variables[1]}:${object.verseObject.number}`;
         console.log(verseRef);
-        outputDiv.innerHTML+= `<p>-${verseRef}</p>`;
-    })
+        verseHtml+= ` -${verseRef}</p>`;
+        outputDiv.innerHTML+=verseHtml;
+    });
     
 };
 

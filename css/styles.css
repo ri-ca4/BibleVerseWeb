@@ -133,3 +133,7 @@ input[type="number"]{
 .hide {
     display: none;
 }
+
+.verse{
+    padding: 5px 0;
+}
