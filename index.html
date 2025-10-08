@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Bible Verse Generator</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="wrapper">
+
+            <header>
+                <h1>Bible Verse Generator</h1>
+                <p>by ri-ca4</p>
+            </header>
+
+            <main>
+                <div class="intro">
+                    <h2>Welcome!</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro eligendi vitae sint excepturi fugit obcaecati quisquam labore molestias consectetur. Ducimus rem explicabo nesciunt impedit doloribus maxime? Minima fuga, itaque amet quo, consequuntur odio sit dolores vitae, voluptatibus at inventore? Enim et, molestias voluptates amet commodi nisi accusantium eos optio saepe.</p>
+                </div>
+                <form id="userSetting">
+                    <div class="input-group">
+                        <label for="translation">Pick your translation:</label>
+                        <select name="translation" id="translation">
+                            <option value="ENGWEBP">World English Bible</option>
+                            <option value="eng_asv">American Standard Version</option>
+                            <option value="eng_kjv">King James Version</option>
+                            <option value="eng_kja">King James Version w/ Apocrypha</option>
+                            <option value="eng_ylt">Young's Literal Translation</option>
+                            <option value="eng_glw">God's Living Word</option>
+                            <option value="BSB">Berean Standard Bible</option>
+                            <option value="eng_net">NET Bible</option>
+                            <option value="eng_ojb">The Orthodox Jewish Bible</option>
+                            <option value="eng_weu">World English Bible British Edition with Deuterocanon</option>
+                            <option value="random">Surprise Me!</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="quantity">How many verses? (1-10)</label>
+                        <input name="quantity" id="quantity" type="number" min="1" max="10" value="1">
+                    </div>
+                    <button type="button" id="submit">Submit</button>
+                </form>
+                <div id="output" class="hide">
+                </div>
+            </main>
+
+        </div>
+        
+        <script src="./js/script.js" async defer></script>
+    </body>
+</html>
